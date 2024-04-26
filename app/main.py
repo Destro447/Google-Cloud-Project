@@ -1,10 +1,15 @@
+from fastapi import FastAPI, Depends, Request
+from fastapi.templating import Jinja2Templates
 
-from fastapi import FastAPI
+# Configure templates directory (adjust path as needed)
+templates = Jinja2Templates(directory="templates")
 
-app = FastAPI()
+# Create the FastAPI application with templates dependency
+app = FastAPI(templates=templates)
 
 
 @app.get("/")
-def read_root():
-    return {"Hello": "BlackDeath"}
-
+async def read_root(request: Request):
+    # Pass context data to the template for dynamic rendering
+    context = {"request": request, "title": "BlackDeath's Page"}
+    return templates.TemplateResponse("index.html", context=context)
