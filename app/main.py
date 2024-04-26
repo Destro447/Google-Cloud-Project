@@ -11,5 +11,5 @@ app = FastAPI(templates=templates)
 @app.get("/")
 async def read_root(request: Request):
     # Pass context data to the template for dynamic rendering
-    context = {"request": request, "title": "BlackDeath's Page"}
+    context = {"request": request, "title": "Simple Page"}
     return templates.TemplateResponse("index.html", context=context)
