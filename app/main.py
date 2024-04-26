@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends, Request
+from fastapi import FastAPI,Request
 from fastapi.templating import Jinja2Templates
 
 # Configure templates directory (adjust path as needed)
