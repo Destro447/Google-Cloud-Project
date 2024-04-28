@@ -1,11 +1,11 @@
 from fastapi import FastAPI,Request,HTTPException,Depends,status
 from fastapi.templating import Jinja2Templates
-from Backend.database import SessionLocal,engine
+from ..Backend.database import SessionLocal,engine
 from sqlalchemy.orm import session
 from pydantic import BaseModel
 from typing import Annotated
-import Backend.models as models
-from Backend.models import UserGreeting
+from  ..Backend import models
+from ..Backend.models import UserGreeting
 
 
 templates = Jinja2Templates(directory="templates")
