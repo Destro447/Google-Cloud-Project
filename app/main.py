@@ -1,6 +1,6 @@
 from fastapi import FastAPI,Request
 from fastapi.templating import Jinja2Templates
-from Backend.database import SessionLocal
+from Backend.database import SessionLocal,engine
 
 # Configure templates directory (adjust path as needed)
 templates = Jinja2Templates(directory="templates")
