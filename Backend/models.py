@@ -1,13 +1,11 @@
-from sqlalchemy import Boolean, Column, String, Integer
-
+from sqlalchemy import Column, String
 from database import Base
 
-class User(Base):
-    __tablename__ = "users"
+class UserGreeting(Base):
+    __tablename__ = "Greetings"
 
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String(50), unique=True, index=True)
-    email = Column(String(50), unique=True, index=True)
-
+    Greeting = Column(String(200), index=True)
+    
+    
 #to add another table
 

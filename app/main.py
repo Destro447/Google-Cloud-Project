@@ -1,13 +1,16 @@
-from fastapi import FastAPI,Request
+from fastapi import FastAPI,Request,HTTPException,Depends,status
 from fastapi.templating import Jinja2Templates
 from Backend.database import SessionLocal,engine
+from sqlalchemy.orm import session
+from pydantic import BaseModel
+from typing import Annotated
+import Backend.models 
 
-# Configure templates directory (adjust path as needed)
+
 templates = Jinja2Templates(directory="templates")
-
-# Create the FastAPI application with templates dependency
 app = FastAPI(templates=templates)
 
+models.Base.metadata.create_all(bind=engine)
 
 @app.get("/")
 async def read_root(request: Request):
