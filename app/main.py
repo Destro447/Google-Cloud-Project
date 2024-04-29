@@ -13,30 +13,6 @@ app = FastAPI(templates=templates)
 
 models.Base.metadata.create_all(bind=engine)
 
-"""@app.get("/")
-async def read_root(request: Request):
-    # Pass context data to the template for dynamic rendering
-    context = {"request": request, "title": "Simple Page"}
-    return templates.TemplateResponse("index.html", context=context)
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-"""
-
-"""
-def get_db():
-  db = SessionLocal()
-  try:
-    greetings = db.query(UserGreeting).first()  
-    if not greetings:
-      greetings = "Erreur retrieving data from database."
-    yield db, greetings 
-  finally:
-    db.close()"""
-
 def get_db():
     db = SessionLocal()
     try:
