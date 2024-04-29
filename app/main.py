@@ -1,4 +1,4 @@
-from Backend.database import SessionLocal,engine
+
 from sqlalchemy import Column, String,Integer
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, session
@@ -7,14 +7,11 @@ from fastapi.templating import Jinja2Templates
 from sqlalchemy.ext.declarative import declarative_base
 import os
 
-
-    
 templates = Jinja2Templates(directory="templates")
 app = FastAPI(templates=templates)
 
 
-"""DATABASE_URL = os.getenv("mysql+pymysql://root:قخخف@localhost:3306/firstapplication")"""
-DATABASE_URL="mysql+pymysql://root:قخخف@localhost:3306/firstapplication"
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 if not DATABASE_URL:
     raise RuntimeError("DATABASE_URL environment variable is not set")
