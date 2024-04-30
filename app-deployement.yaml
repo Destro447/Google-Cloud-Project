@@ -1,0 +1,23 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-gc-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-gc-app
+  template:
+    metadata:
+      labels:
+        app: my-gc-app
+    spec:
+      containers:
+      - image: chemseddine47/my-gc-app:1
+        imagePullPolicy: Always
+        name: my-gc-app
+        env:
+          - name: DATABASE_URL
+            value: "mysql://admin:root@mysql:3306/mygcdb"  # Replace with your actual MySQL service name and database
+      restartPolicy: Always
