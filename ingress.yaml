@@ -13,6 +13,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: my-gc-app
+                name: my-gc-app-service
                 port:
-                  number: 8080
+                  number: 80

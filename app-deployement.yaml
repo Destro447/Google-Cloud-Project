@@ -1,3 +1,4 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -13,10 +14,10 @@ spec:
         app: my-gc-app
     spec:
       containers:
-      - image: chemseddine47/mmy-gc-app:1
-        imagePullPolicy: IfNotPresent
+      - image: chemseddine47/my-gc-app:1
+        imagePullPolicy: Always
         name: my-gc-app
-        env:  # Add the environment variables here
+        env:
           - name: DATABASE_URL
-            value: "mysql://root:قخخف@mysql-service:3306/your_database"
+            value: "mysql://admin:root@mysql:3306/mygcdb"  # Replace with your actual MySQL service name and database
       restartPolicy: Always

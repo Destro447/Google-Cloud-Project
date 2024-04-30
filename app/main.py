@@ -42,7 +42,7 @@ async def read_root(request: Request, db: session = Depends(get_db)):
 
   db, greetings = db
   context = {"request": request, "title": "Simple Page", "greeting": greetings}
-  return templates.TemplateResponse("index.html", context=context)
+  return templates.TemplateResponse("templates/index.html", context=context)
 
 
 class UserGreeting(Base):
