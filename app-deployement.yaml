@@ -13,30 +13,10 @@ spec:
         app: my-gc-app
     spec:
       containers:
-        - image: chemseddine47/mmy-gc-app:1
-          imagePullPolicy: IfNotPresent
-          name: my-gc-app
-      restartPolicy: Always
-
-
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: my-gc-app
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: my-gc-app
-  template:
-    metadata:
-      labels:
-        app: my-gc-app
-    spec:
-      containers:
       - image: chemseddine47/mmy-gc-app:1
         imagePullPolicy: IfNotPresent
         name: my-gc-app
         env:  # Add the environment variables here
           - name: DATABASE_URL
             value: "mysql://root:قخخف@mysql-service:3306/your_database"
+      restartPolicy: Always
